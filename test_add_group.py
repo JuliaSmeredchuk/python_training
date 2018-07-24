@@ -63,18 +63,6 @@ class test_add_group(unittest.TestCase):
         self.return_to_groups_page(wd)
         self.logout(wd)
 
-
-
-
-
-
-
-
-
-
-
-
-
     def tearDown(self):
         self.wd.quit()
 
