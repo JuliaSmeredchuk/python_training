@@ -19,6 +19,16 @@ class test_add_group(unittest.TestCase):
     def open_home_page(self, wd):
         # open home page
         wd.get("http://localhost/addressbook/")
+
+    def login(self, wd):
+        # login
+        wd.find_element_by_name("user").click()
+        wd.find_element_by_name("user").clear()
+        wd.find_element_by_name("user").send_keys("admin")
+        wd.find_element_by_name("pass").click()
+        wd.find_element_by_name("pass").clear()
+        wd.find_element_by_name("pass").send_keys("secret")
+        wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
     
     def test_test_add_group(self):
         wd = self.wd
@@ -57,15 +67,7 @@ class test_add_group(unittest.TestCase):
         # open groups page
         wd.find_element_by_link_text("groups").click()
 
-    def login(self, wd):
-        # login
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys("admin")
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("secret")
-        wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
+
 
 
 
