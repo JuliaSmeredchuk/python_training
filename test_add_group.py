@@ -51,6 +51,9 @@ class test_add_group(unittest.TestCase):
     def return_to_groups_page(self, wd):
         wd.find_element_by_link_text("group page").click()
 
+    def logout(self, wd):
+        wd.find_element_by_link_text("Logout").click()
+
     def test_test_add_group(self):
         wd = self.wd
         self.open_home_page(wd)
@@ -60,9 +63,7 @@ class test_add_group(unittest.TestCase):
         self.return_to_groups_page(wd)
         self.logout(wd)
 
-    def logout(self, wd):
-        # logout
-        wd.find_element_by_link_text("Logout").click()
+
 
 
 
