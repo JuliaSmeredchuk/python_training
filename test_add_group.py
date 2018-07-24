@@ -17,7 +17,6 @@ class test_add_group(unittest.TestCase):
         self.wd.implicitly_wait(60)
 
     def open_home_page(self, wd):
-        # open home page
         wd.get("http://localhost/addressbook/")
 
     def login(self, wd):
