@@ -31,7 +31,7 @@ class test_add_group(unittest.TestCase):
     def open_groups_page(self, wd):
         wd.find_element_by_link_text("groups").click()
 
-    def create_group(self, wd, name="My first group", header="1", footer="1"):
+    def create_group(self, wd, name, header, footer):
         # init group creation
         wd.find_element_by_name("new").click()
         # fill group form
@@ -58,7 +58,7 @@ class test_add_group(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_groups_page(wd)
-        self.create_group(wd)
+        self.create_group(wd, "My first group", "1", "1")
         self.return_to_groups_page(wd)
         self.logout(wd)
 
