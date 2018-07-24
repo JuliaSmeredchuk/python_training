@@ -48,6 +48,9 @@ class test_add_group(unittest.TestCase):
         # submit group creation
         wd.find_element_by_name("submit").click()
 
+    def return_to_groups_page(self, wd):
+        wd.find_element_by_link_text("group page").click()
+
     def test_test_add_group(self):
         wd = self.wd
         self.open_home_page(wd)
@@ -61,9 +64,7 @@ class test_add_group(unittest.TestCase):
         # logout
         wd.find_element_by_link_text("Logout").click()
 
-    def return_to_groups_page(self, wd):
-        # return to groups page
-        wd.find_element_by_link_text("group page").click()
+
 
 
 
