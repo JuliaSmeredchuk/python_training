@@ -13,11 +13,13 @@ class test_add_contact(unittest.TestCase):
     def setUp(self):
         self.wd = WebDriver(capabilities={"marionette": False}, firefox_binary="C:/Program Files/Mozilla Firefox 52.9.0/firefox.exe")
         self.wd.implicitly_wait(60)
-    
+
+    def open_home_page(self, wd):
+            wd.get("http://localhost/addressbook/")
+
     def test_test_add_contact(self):
         wd = self.wd
-        # open home page
-        wd.get("http://localhost/addressbook/")
+        self.open_home_page(wd)
         # login
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
