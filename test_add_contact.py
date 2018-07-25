@@ -116,6 +116,10 @@ class test_add_contact(unittest.TestCase):
     def return_to_home_page(self, wd):
         wd.find_element_by_link_text("home page").click()
 
+    def logout(self, wd):
+        # logout
+        wd.find_element_by_link_text("Logout").click()
+
     def test_test_add_contact(self):
         wd = self.wd
         self.open_home_page(wd)
@@ -123,8 +127,8 @@ class test_add_contact(unittest.TestCase):
         self.open_add_new_page(wd)
         self.create_contact(wd)
         self.return_to_home_page(wd)
-        # logout
-        wd.find_element_by_link_text("Logout").click()
+        self.logout(wd)
+
 
 
     def tearDown(self):
