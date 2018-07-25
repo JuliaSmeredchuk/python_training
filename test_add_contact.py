@@ -113,17 +113,18 @@ class test_add_contact(unittest.TestCase):
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
+    def return_to_home_page(self, wd):
+        wd.find_element_by_link_text("home page").click()
+
     def test_test_add_contact(self):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd)
         self.open_add_new_page(wd)
         self.create_contact(wd)
-        # return to home page
-        wd.find_element_by_link_text("home page").click()
+        self.return_to_home_page(wd)
         # logout
         wd.find_element_by_link_text("Logout").click()
-
 
 
     def tearDown(self):
