@@ -17,9 +17,7 @@ class test_add_contact(unittest.TestCase):
     def open_home_page(self, wd):
             wd.get("http://localhost/addressbook/")
 
-    def test_test_add_contact(self):
-        wd = self.wd
-        self.open_home_page(wd)
+    def login(self, wd):
         # login
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
@@ -28,6 +26,11 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
+
+    def test_test_add_contact(self):
+        wd = self.wd
+        self.open_home_page(wd)
+        self.login(wd)
         # open add new page
         wd.find_element_by_link_text("add new").click()
         # fill contact form
@@ -114,6 +117,7 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         # logout
         wd.find_element_by_link_text("Logout").click()
+
 
     def tearDown(self):
         self.wd.quit()
