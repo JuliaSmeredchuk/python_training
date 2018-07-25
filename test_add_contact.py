@@ -119,6 +119,8 @@ class test_add_contact(unittest.TestCase):
         self.login(wd)
         self.open_add_new_page(wd)
         self.create_contact(wd)
+        # return to home page
+        wd.find_element_by_link_text("home page").click()
         # logout
         wd.find_element_by_link_text("Logout").click()
 
