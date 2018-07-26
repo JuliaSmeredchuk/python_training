@@ -31,7 +31,8 @@ class test_add_contact(unittest.TestCase):
 
     def create_contact(self, wd, firstname="Julia", middlename="Vladimirovna", lastname="Smeredchuk", nickname="-",
                        title="fdte", company="sderty", address="asdfghj", home="qwerty", mobile="89257789625",
-                       work="4512368", fax="789456", email="1@1.com", email2="1@1.com", email3="1@1.com", homepage="---"):
+                       work="4512368", fax="789456", email="1@1.com", email2="1@1.com", email3="1@1.com", homepage="---",
+                       byear="1988", ayear="2018", address2="bhgyfte", phone2="rteyuimn", notes="rtyuioppm"):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -85,24 +86,24 @@ class test_add_contact(unittest.TestCase):
             wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[3]").click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys("1988")
+        wd.find_element_by_name("byear").send_keys(byear)
         if not wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[26]").is_selected():
             wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[26]").click()
         if not wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[3]").is_selected():
             wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[3]").click()
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
-        wd.find_element_by_name("ayear").send_keys("2018")
+        wd.find_element_by_name("ayear").send_keys(ayear)
         wd.find_element_by_name("theform").click()
         wd.find_element_by_name("address2").click()
         wd.find_element_by_name("address2").clear()
-        wd.find_element_by_name("address2").send_keys("bhgyfte")
+        wd.find_element_by_name("address2").send_keys(address2)
         wd.find_element_by_name("phone2").click()
         wd.find_element_by_name("phone2").clear()
-        wd.find_element_by_name("phone2").send_keys("rteyuimn")
+        wd.find_element_by_name("phone2").send_keys(phone2)
         wd.find_element_by_name("notes").click()
         wd.find_element_by_name("notes").clear()
-        wd.find_element_by_name("notes").send_keys("rtyuioppm")
+        wd.find_element_by_name("notes").send_keys(notes)
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
