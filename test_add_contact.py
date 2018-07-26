@@ -111,7 +111,7 @@ class test_add_contact(unittest.TestCase):
     def logout(self, wd):
         wd.find_element_by_link_text("Logout").click()
 
-    def test_test_add_contact(self):
+    def test_add_contact(self):
         wd = self.wd
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
@@ -121,7 +121,6 @@ class test_add_contact(unittest.TestCase):
                             address2="bhgyfte", phone2="rteyuimn", notes="rtyuioppm")
         self.return_to_home_page(wd)
         self.logout(wd)
-
 
 
     def tearDown(self):
