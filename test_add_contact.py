@@ -30,7 +30,8 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_link_text("add new").click()
 
     def create_contact(self, wd, firstname="Julia", middlename="Vladimirovna", lastname="Smeredchuk", nickname="-",
-                       title="fdte", company="sderty"):
+                       title="fdte", company="sderty", address="asdfghj", home="qwerty", mobile="89257789625",
+                       work="4512368", fax="789456"):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -52,19 +53,19 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("company").send_keys(company)
         wd.find_element_by_name("address").click()
         wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys("asdfghj")
+        wd.find_element_by_name("address").send_keys(address)
         wd.find_element_by_name("home").click()
         wd.find_element_by_name("home").clear()
-        wd.find_element_by_name("home").send_keys("qwerty")
+        wd.find_element_by_name("home").send_keys(home)
         wd.find_element_by_name("mobile").click()
         wd.find_element_by_name("mobile").clear()
-        wd.find_element_by_name("mobile").send_keys("89257789625")
+        wd.find_element_by_name("mobile").send_keys(mobile)
         wd.find_element_by_name("work").click()
         wd.find_element_by_name("work").clear()
-        wd.find_element_by_name("work").send_keys("4512368")
+        wd.find_element_by_name("work").send_keys(work)
         wd.find_element_by_name("fax").click()
         wd.find_element_by_name("fax").clear()
-        wd.find_element_by_name("fax").send_keys("789456")
+        wd.find_element_by_name("fax").send_keys(fax)
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys("1")
