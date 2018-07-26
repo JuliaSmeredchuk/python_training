@@ -31,7 +31,7 @@ class test_add_contact(unittest.TestCase):
 
     def create_contact(self, wd, firstname="Julia", middlename="Vladimirovna", lastname="Smeredchuk", nickname="-",
                        title="fdte", company="sderty", address="asdfghj", home="qwerty", mobile="89257789625",
-                       work="4512368", fax="789456"):
+                       work="4512368", fax="789456", email="1@1.com", email2="1@1.com", email3="1@1.com", homepage="---"):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -68,16 +68,16 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("fax").send_keys(fax)
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys("1@1.com")
+        wd.find_element_by_name("email").send_keys(email)
         wd.find_element_by_name("email2").click()
         wd.find_element_by_name("email2").clear()
-        wd.find_element_by_name("email2").send_keys("1@1.com")
+        wd.find_element_by_name("email2").send_keys(email2)
         wd.find_element_by_name("email3").click()
         wd.find_element_by_name("email3").clear()
-        wd.find_element_by_name("email3").send_keys("1@1.com")
+        wd.find_element_by_name("email3").send_keys(email3)
         wd.find_element_by_name("homepage").click()
         wd.find_element_by_name("homepage").clear()
-        wd.find_element_by_name("homepage").send_keys("---")
+        wd.find_element_by_name("homepage").send_keys(homepage)
         wd.find_element_by_name("theform").click()
         if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[26]").is_selected():
             wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[26]").click()
