@@ -29,7 +29,8 @@ class test_add_contact(unittest.TestCase):
     def open_add_new_page(self, wd):
         wd.find_element_by_link_text("add new").click()
 
-    def create_contact(self, wd, firstname="Julia", middlename="Vladimirovna", lastname="Smeredchuk"):
+    def create_contact(self, wd, firstname="Julia", middlename="Vladimirovna", lastname="Smeredchuk", nickname="-",
+                       title="fdte", company="sderty"):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -42,13 +43,13 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("lastname").send_keys(lastname)
         wd.find_element_by_name("nickname").click()
         wd.find_element_by_name("nickname").clear()
-        wd.find_element_by_name("nickname").send_keys("-")
+        wd.find_element_by_name("nickname").send_keys(nickname)
         wd.find_element_by_name("title").click()
         wd.find_element_by_name("title").clear()
-        wd.find_element_by_name("title").send_keys("fdte")
+        wd.find_element_by_name("title").send_keys(title)
         wd.find_element_by_name("company").click()
         wd.find_element_by_name("company").clear()
-        wd.find_element_by_name("company").send_keys("sderty")
+        wd.find_element_by_name("company").send_keys(company)
         wd.find_element_by_name("address").click()
         wd.find_element_by_name("address").clear()
         wd.find_element_by_name("address").send_keys("asdfghj")
