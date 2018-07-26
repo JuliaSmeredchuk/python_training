@@ -29,7 +29,7 @@ class test_add_contact(unittest.TestCase):
     def open_add_new_page(self, wd):
         wd.find_element_by_link_text("add new").click()
 
-    def create_contact(self, wd, firstname="Julia", middlename="Vladimirovna", lastname="Smeredchuk"):
+    def create_contact(self, wd, firstname="Julia", middlename="Vladimirovna"):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -39,7 +39,7 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("middlename").send_keys(middlename)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(lastname)
+        wd.find_element_by_name("lastname").send_keys("Smeredchuk")
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
         wd.find_element_by_name("lastname").send_keys("Smeredchuk")
