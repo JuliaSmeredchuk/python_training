@@ -17,10 +17,10 @@ class test_add_contact(unittest.TestCase):
     def open_home_page(self, wd):
             wd.get("http://localhost/addressbook/")
 
-    def login(self, wd):
+    def login(self, wd, username="admin"):
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys("admin")
+        wd.find_element_by_name("user").send_keys(username)
         wd.find_element_by_name("pass").click()
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
