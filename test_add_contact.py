@@ -29,10 +29,8 @@ class test_add_contact(unittest.TestCase):
     def open_add_new_page(self, wd):
         wd.find_element_by_link_text("add new").click()
 
-    def create_contact(self, wd, firstname="Julia", middlename="Vladimirovna", lastname="Smeredchuk", nickname="-",
-                       title="fdte", company="sderty", address="asdfghj", home="qwerty", mobile="89257789625",
-                       work="4512368", fax="789456", email="1@1.com", email2="1@1.com", email3="1@1.com", homepage="---",
-                       byear="1988", ayear="2018", address2="bhgyfte", phone2="rteyuimn", notes="rtyuioppm"):
+    def create_contact(self, wd, firstname, middlename, lastname, nickname, title, company, address, home, mobile, work,
+                       fax, email, email2, email3, homepage, byear, ayear, address2, phone2, notes):
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -118,7 +116,9 @@ class test_add_contact(unittest.TestCase):
         self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
         self.open_add_new_page(wd)
-        self.create_contact(wd)
+        self.create_contact(wd, "Julia", "Vladimirovna", "Smeredchuk", "-", "fdte", "sderty", "asdfghj", "qwerty",
+                            "89257789625", "4512368", "789456", "1@1.com", "1@1.com", "1@1.com", "---", "1988", "2018",
+                            "bhgyfte", "rteyuimn", "rtyuioppm")
         self.return_to_home_page(wd)
         self.logout(wd)
 
