@@ -117,7 +117,6 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_link_text("home page").click()
 
     def logout(self, wd):
-        # logout
         wd.find_element_by_link_text("Logout").click()
 
     def test_test_add_contact(self):
