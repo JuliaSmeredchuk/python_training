@@ -17,7 +17,7 @@ class test_add_contact(unittest.TestCase):
     def open_home_page(self, wd):
             wd.get("http://localhost/addressbook/")
 
-    def login(self, wd, username="admin", password="secret"):
+    def login(self, wd, username, password):
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
@@ -122,7 +122,7 @@ class test_add_contact(unittest.TestCase):
     def test_test_add_contact(self):
         wd = self.wd
         self.open_home_page(wd)
-        self.login(wd)
+        self.login(wd, username="admin", password="secret")
         self.open_add_new_page(wd)
         self.create_contact(wd)
         self.return_to_home_page(wd)
