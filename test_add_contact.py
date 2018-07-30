@@ -19,6 +19,7 @@ class test_add_contact(unittest.TestCase):
             wd.get("http://localhost/addressbook/")
 
     def login(self, wd, username, password):
+        self.open_home_page(wd)
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
@@ -31,6 +32,7 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_link_text("add new").click()
 
     def create_contact(self, wd, contact):
+        self.open_add_new_page(wd)
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -104,6 +106,7 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("notes").send_keys(contact.notes)
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+        self.return_to_home_page(wd)
 
     def return_to_home_page(self, wd):
         wd.find_element_by_link_text("home page").click()
@@ -113,13 +116,10 @@ class test_add_contact(unittest.TestCase):
 
     def test_add_contact(self):
         wd = self.wd
-        self.open_home_page(wd)
         self.login(wd, username="admin", password="secret")
-        self.open_add_new_page(wd)
         self.create_contact(wd, Contact(firstname="Julia", middlename="Vladimirovna", lastname="Smeredchuk", nickname="-", title="fdte", company="sderty", address="asdfghj", home="qwerty",
                             mobile="89257789625", work="4512368", fax="789456", email="1@1.com", email2="1@1.com", email3="1@1.com", homepage="---", byear="1988", ayear="2018",
                             address2="bhgyfte", phone2="rteyuimn", notes="rtyuioppm"))
-        self.return_to_home_page(wd)
         self.logout(wd)
 
 
