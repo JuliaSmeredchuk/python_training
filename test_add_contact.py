@@ -17,7 +17,7 @@ class test_add_contact(unittest.TestCase):
         self.wd = WebDriver(capabilities={"marionette": False}, firefox_binary="C:/Program Files/Mozilla Firefox 52.9.0/firefox.exe")
         self.wd.implicitly_wait(60)
 
-    def open_home_page(self, wd):
+    def open_home_page(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/")
 
