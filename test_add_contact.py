@@ -11,15 +11,19 @@ def is_alert_present(wd):
         return False
 
 class test_add_contact(unittest.TestCase):
+    wd: WebDriver
+
     def setUp(self):
         self.wd = WebDriver(capabilities={"marionette": False}, firefox_binary="C:/Program Files/Mozilla Firefox 52.9.0/firefox.exe")
         self.wd.implicitly_wait(60)
 
     def open_home_page(self, wd):
-            wd.get("http://localhost/addressbook/")
+        wd = self.wd
+        wd.get("http://localhost/addressbook/")
 
-    def login(self, wd, username, password):
-        self.open_home_page(wd)
+    def login(self, username, password):
+        wd = self.wd
+        self.open_home_page()
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(username)
@@ -28,11 +32,13 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("pass").send_keys(password)
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
 
-    def open_add_new_page(self, wd):
+    def open_add_new_page(self):
+        wd = self.wd
         wd.find_element_by_link_text("add new").click()
 
-    def create_contact(self, wd, contact):
-        self.open_add_new_page(wd)
+    def create_contact(self, contact):
+        wd = self.wd
+        self.open_add_new_page()
         # fill contact form
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -106,21 +112,22 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("notes").send_keys(contact.notes)
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
-        self.return_to_home_page(wd)
+        self.return_to_home_page()
 
-    def return_to_home_page(self, wd):
+    def return_to_home_page(self):
+        wd = self.wd
         wd.find_element_by_link_text("home page").click()
 
-    def logout(self, wd):
+    def logout(self):
+        wd = self.wd
         wd.find_element_by_link_text("Logout").click()
 
     def test_add_contact(self):
-        wd = self.wd
-        self.login(wd, username="admin", password="secret")
-        self.create_contact(wd, Contact(firstname="Julia", middlename="Vladimirovna", lastname="Smeredchuk", nickname="-", title="fdte", company="sderty", address="asdfghj", home="qwerty",
+        self.login(username="admin", password="secret")
+        self.create_contact(Contact(firstname="Julia", middlename="Vladimirovna", lastname="Smeredchuk", nickname="-", title="fdte", company="sderty", address="asdfghj", home="qwerty",
                             mobile="89257789625", work="4512368", fax="789456", email="1@1.com", email2="1@1.com", email3="1@1.com", homepage="---", byear="1988", ayear="2018",
                             address2="bhgyfte", phone2="rteyuimn", notes="rtyuioppm"))
-        self.logout(wd)
+        self.logout()
 
 
     def tearDown(self):
