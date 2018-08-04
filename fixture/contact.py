@@ -89,8 +89,8 @@ class ContactHelper:
     def modification(self, contact_modification):
         wd = self.app.wd
         # contact modification
-        if not wd.find_element_by_id("11").is_selected():
-            wd.find_element_by_id("11").click()
+        if not wd.find_element_by_id("71").is_selected():
+            wd.find_element_by_id("71").click()
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
