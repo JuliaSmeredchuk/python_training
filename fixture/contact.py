@@ -86,6 +86,31 @@ class ContactHelper:
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         self.return_to_home_page()
 
+    def modification(self, contact_modification):
+        wd = self.app.wd
+        # contact modification
+        if not wd.find_element_by_id("11").is_selected():
+            wd.find_element_by_id("11").click()
+        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        wd.find_element_by_name("firstname").click()
+        wd.find_element_by_name("firstname").clear()
+        wd.find_element_by_name("firstname").send_keys(contact_modification.firstname)
+        wd.find_element_by_name("middlename").click()
+        wd.find_element_by_name("middlename").clear()
+        wd.find_element_by_name("middlename").send_keys(contact_modification.middlename)
+        wd.find_element_by_name("lastname").click()
+        wd.find_element_by_name("lastname").clear()
+        wd.find_element_by_name("lastname").send_keys(contact_modification.lastname)
+        wd.find_element_by_name("mobile").click()
+        wd.find_element_by_name("mobile").clear()
+        wd.find_element_by_name("mobile").send_keys(contact_modification.mobile)
+        wd.find_element_by_name("notes").click()
+        wd.find_element_by_name("notes").clear()
+        wd.find_element_by_name("notes").send_keys(contact_modification.notes)
+        # submit contact modification
+        wd.find_element_by_xpath("//div[@id='content']/form[1]/input[22]").click()
+        self.return_to_home_page()
+
 
     def delete_first_contact(self):
         wd = self.app.wd
@@ -95,6 +120,7 @@ class ContactHelper:
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
         wd.find_element_by_link_text("home").click()
+
 
 
     def return_to_home_page(self):
