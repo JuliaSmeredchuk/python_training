@@ -9,7 +9,7 @@ def test_emails_on_home_page(app):
     assert contact_from_home_page.all_emails_from_home_page == merge_emails_like_on_home_page(contact_from_edit_page)
 
 def clear_for_emails(s):
-    return re.sub("!^", "", s)
+    return re.sub("[() -]", "", s)
 
 def merge_emails_like_on_home_page(contact):
     return "\n".join(filter(lambda x: x != "",
