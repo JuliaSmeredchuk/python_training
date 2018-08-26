@@ -5,10 +5,10 @@ import random
 import string
 
 def random_string(prefix, maxlen):
-    symbols = string. ascii_letters + string.digits + string.punctuation + " "*10
+    symbols = string. ascii_letters + string.digits + " "*3#+ string.punctuation#
     return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
 
-testdata = [Contact(firstname="", middlename="", lastname="")] + [
+testdata = [Contact(firstname="", lastname="", email="", home="")] + [
     Contact(firstname=random_string("firstname", 15), middlename=random_string("middlename", 20), lastname=random_string("lastname", 25),
             nickname=random_string("nickname", 10), address=random_string("address", 10), home=random_string("home", 8),
             mobile=random_string("mobile", 8), work=random_string("work", 8), email=random_string("email", 8),
